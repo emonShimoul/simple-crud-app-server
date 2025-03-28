@@ -42,7 +42,7 @@ async function run() {
 
     app.post("/users", async (req, res) => {
       const user = req.body;
-      console.log("new user", user);
+      // console.log("new user", user);
       const result = await usersCollection.insertOne(user);
       res.send(result);
     });
@@ -50,7 +50,7 @@ async function run() {
     app.put("/users/:id", async (req, res) => {
       const id = req.params.id;
       const user = req.body;
-      console.log(id, user);
+      // console.log(id, user);
       const filter = { _id: new ObjectId(id) };
       const options = { upsert: true };
 
@@ -71,7 +71,7 @@ async function run() {
 
     app.delete("/users/:id", async (req, res) => {
       const id = req.params.id;
-      console.log("please delete id: ", id);
+      // console.log("please delete id: ", id);
 
       const query = { _id: new ObjectId(id) };
       const result = await usersCollection.deleteOne(query);
